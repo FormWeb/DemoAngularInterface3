@@ -1,0 +1,27 @@
+<!-- <h2>{{hero.name | uppercase}} Details</h2>
+<div>
+    <span>id: </span>{{hero.id}}
+</div>
+<div>
+    <label for="name">Name : </label>
+    <input type="text" [(ngModel)]="hero.name">
+</div> -->
+
+<h2>My heroes</h2>
+<ul class="heroes">
+    <li *ngFor="let h of heroes">
+        <button type="button" (click)="onSelect(h)"
+                [class.selected]="h===selectedHero">
+            <span class="badge">{{h.id}}</span>
+            <span class="name">{{h.name}}</span>
+        </button>
+    </li>
+    <li>
+        <button type="button" (click)="onRandomSelect()">
+            <span class="badge">0</span>
+            <span class="name">Get Random Hero</span>
+        </button>
+    </li>
+</ul>
+
+<app-hero-detail [selectedHero]="selectedHero"></app-hero-detail>
